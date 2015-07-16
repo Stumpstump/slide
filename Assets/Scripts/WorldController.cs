@@ -40,6 +40,8 @@ public class WorldController : MonoBehaviour
     [HideInInspector]
     public Vector3 deviceGravity;
 
+    public static readonly LayerMask layerPlatforms = LayerMask.NameToLayer("Platforms");
+
     void Awake()
     {
 #if UNITY_EDITOR
