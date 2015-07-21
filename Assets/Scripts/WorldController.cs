@@ -22,9 +22,7 @@ public class WorldController : MonoBehaviour
     private float dragSensitivity;
 
     private readonly float gravity = 9.81f;
-    private readonly float screenRatio = 16 / 9;
     private readonly float defaultCamSize = 5f;
-    private readonly float editorCamSize = 5 * 16 / 9;
     private Vector2 gravityVector = Vector2.zero;
 
     // These variables deal with the mouse dragging for editor control
@@ -68,9 +66,13 @@ public class WorldController : MonoBehaviour
         if (draggingWorld)
         {
             mouseOffset = (Vector2)Input.mousePosition - initialMousePos;
-            camRotationAmount = mouseOffset.x * dragSensitivity;
+
+            bool draggingHorz = Mathf.Abs(mouseOffset.x) >= Mathf.Abs(mouseOffset.y);
+
+            camRotationAmount = draggingHorz ? mouseOffset.x : mouseOffset.y;
+            camRotationAmount *= dragSensitivity;
             camRotationAmount %= 360;
-            if (initialMousePos.y < (Screen.height / 2))
+            if ((draggingHorz && initialMousePos.y < (Screen.height / 2)) || (!draggingHorz && initialMousePos.x > (Screen.width / 2)))
                 camRotationAmount *= -1;
             Camera.main.transform.Rotate(new Vector3(0f, 0f, camRotationAmount));
 
@@ -112,7 +114,7 @@ public class WorldController : MonoBehaviour
         else if (camRot >= 90)
         {
             x = 1 - ((camRot - 90) / 90);
-            y = y = (camRot - 90) / 90;
+            y = (camRot - 90) / 90;
         }
 
         else
@@ -198,7 +200,7 @@ public class WorldController : MonoBehaviour
         //Second method
         else
         {
-            switch (currentOrientation)
+            switch (lastOrientation)
             {
                 case DeviceOrientation.LandscapeLeft:
                     gravityVector.Set(0f, -gravity);
@@ -230,7 +232,6 @@ public class WorldController : MonoBehaviour
 
     public void CreateNewPlayer()
     {
-        GameObject newPlayer = Instantiate(player, Vector2.zero, Quaternion.identity) as GameObject;
-        newPlayer.GetComponent<PlayerController>().SetWorldController(this);
+        Instantiate(player, Vector2.zero, Quaternion.identity);
     }
 }
