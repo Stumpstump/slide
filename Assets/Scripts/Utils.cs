@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Utils
+public static class Utils
 {
-    private static readonly float zeroBuffer = 0.01f;
-
+    public static float zeroBuffer;
     public static Vector2 ZeroIfCloseToZero(Vector2 input)
     {
         Vector2 output = new Vector2();

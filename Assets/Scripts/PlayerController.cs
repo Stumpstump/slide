@@ -7,15 +7,20 @@ using System.Linq;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Used only to reference object in-code.")]
+    private Text percentageText;
+    [SerializeField]
+    [Tooltip("How fast player rolls when tilting.")]
     private float rollSpeed;
     [SerializeField]
+    [Tooltip("Minimum jump force when holding jump.")]
     private float minJumpForce;
     [SerializeField]
+    [Tooltip("Maximum jump force when holding jump.")]
     private float maxJumpForce;
     [SerializeField]
+    [Tooltip("The longest amount of time the player can hold jump.")]
     private float maxJumpSetInSeconds;
-    [SerializeField]
-    private Text percentageText;
 
     private Rigidbody2D rb;
     private Vector2 rollVector = Vector2.zero;
@@ -31,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     public Teleporter teleportingTeleporter { get; set; }
     public bool InteractWithTeleporters { get; set; }
+
 
     void Awake()
     {
@@ -119,12 +125,12 @@ public class PlayerController : MonoBehaviour
         {
             case DeviceOrientation.LandscapeLeft:
             case DeviceOrientation.LandscapeRight:
-                rollVector.Set(wc.deviceGravity.x, 0f);
+                rollVector.Set(0f, wc.deviceGravity.y);
                 break;
 
             case DeviceOrientation.Portrait:
             case DeviceOrientation.PortraitUpsideDown:
-                rollVector.Set(0f, wc.deviceGravity.y);
+                rollVector.Set(wc.deviceGravity.x, 0f);
                 break;
 
             default:

@@ -7,29 +7,35 @@ using System.Collections;
 public class WorldController : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Used only to reference object in-code.")]
     private Text customOrientationText;
     [SerializeField]
+    [Tooltip("Used only to reference object in-code.")]
     private Text lastOrientationText;
     [SerializeField]
-    private float tiltOrientationChangeThreshold;
-    [SerializeField]
-    private GameObject player;
-    [SerializeField]
+    [Tooltip("Used only to reference object in-code.")]
     private Toggle useOld;
+    [SerializeField]
+    [Tooltip("A number between 0.0 and 1.0.\nWhen the rotation is higher than this amount, it will change orientation.")]
+    private float tiltOrientationChangeThreshold;
+    [Tooltip("The force amount below which will not register.\nHigher number means bigger buffer.")]
+    public float zeroBuffer;
 
     // This is for the editor dragging
     [SerializeField]
+    [Tooltip("How sensitive the editor dragging is.")]
     private float dragSensitivity;
 
     private readonly float gravity = 9.81f;
-    private readonly float defaultCamSize = 5f;
+    private readonly float defaultCamSize = 8.888888f;
     private Vector2 gravityVector = Vector2.zero;
+    private GameObject player;
 
     // These variables deal with the mouse dragging for editor control
-    private bool draggingWorld = false;
     private Vector2 initialMousePos = Vector2.zero;
     private Vector2 mouseOffset = Vector2.zero;
     private float camRotationAmount = 0f;
+    private bool draggingWorld = false;
 
     [HideInInspector]
     public DeviceOrientation currentOrientation = DeviceOrientation.FaceUp;
@@ -40,17 +46,16 @@ public class WorldController : MonoBehaviour
 
     public static readonly LayerMask layerPlatforms = LayerMask.NameToLayer("Platforms");
 
+
     void Awake()
     {
-#if UNITY_EDITOR
-        Camera.main.orthographicSize = 8.888888888f;
-#else
         Camera.main.orthographicSize = defaultCamSize;
-#endif
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
+        Utils.zeroBuffer = this.zeroBuffer;
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
@@ -133,43 +138,40 @@ public class WorldController : MonoBehaviour
         float camRot = Camera.main.transform.rotation.eulerAngles.z;
 
         if (camRot >= 315f || camRot < 45)
-            currentOrientation = DeviceOrientation.LandscapeLeft;
-        else if (camRot >= 225f)
-            currentOrientation = DeviceOrientation.PortraitUpsideDown;
-        else if (camRot >= 135f)
-            currentOrientation = DeviceOrientation.LandscapeRight;
-        else
             currentOrientation = DeviceOrientation.Portrait;
+        else if (camRot >= 225f)
+            currentOrientation = DeviceOrientation.LandscapeLeft;
+        else if (camRot >= 135f)
+            currentOrientation = DeviceOrientation.PortraitUpsideDown;
+        else
+            currentOrientation = DeviceOrientation.LandscapeRight;
 #else
-        // Tilt to portrait
         if (deviceGravity.x >= tiltOrientationChangeThreshold)
         {
             if (Mathf.Abs(deviceGravity.x) > Mathf.Abs(deviceGravity.y))
-                currentOrientation = DeviceOrientation.Portrait;
-            else if (deviceGravity.y < 0)
-                currentOrientation = DeviceOrientation.LandscapeLeft;
-            else
                 currentOrientation = DeviceOrientation.LandscapeRight;
+            else if (deviceGravity.y < 0)
+                currentOrientation = DeviceOrientation.Portrait;
+            else
+                currentOrientation = DeviceOrientation.PortraitUpsideDown;
         }
 
-        // Tilt to portraitupsidedown
         else if (deviceGravity.x <= -tiltOrientationChangeThreshold)
         {
             if (Mathf.Abs(deviceGravity.x) > Mathf.Abs(deviceGravity.y))
-                currentOrientation = DeviceOrientation.PortraitUpsideDown;
-            else if (deviceGravity.y < 0)
                 currentOrientation = DeviceOrientation.LandscapeLeft;
+            else if (deviceGravity.y < 0)
+                currentOrientation = DeviceOrientation.Portrait;
             else
-                currentOrientation = DeviceOrientation.LandscapeRight;
+                currentOrientation = DeviceOrientation.PortraitUpsideDown;
         }
 
-        // Landscape or faceup / facedown
         else
         {
             if (deviceGravity.y >= tiltOrientationChangeThreshold)
-                currentOrientation = DeviceOrientation.LandscapeRight;
+                currentOrientation = DeviceOrientation.PortraitUpsideDown;
             else if (deviceGravity.y <= -tiltOrientationChangeThreshold)
-                currentOrientation = DeviceOrientation.LandscapeLeft;
+                currentOrientation = DeviceOrientation.Portrait;
             else if (deviceGravity.z <= 0)
                 currentOrientation = DeviceOrientation.FaceUp;
             else
@@ -202,19 +204,19 @@ public class WorldController : MonoBehaviour
         {
             switch (lastOrientation)
             {
-                case DeviceOrientation.LandscapeLeft:
+                case DeviceOrientation.Portrait:
                     gravityVector.Set(0f, -gravity);
                     break;
 
-                case DeviceOrientation.LandscapeRight:
+                case DeviceOrientation.PortraitUpsideDown:
                     gravityVector.Set(0f, gravity);
                     break;
 
-                case DeviceOrientation.Portrait:
+                case DeviceOrientation.LandscapeRight:
                     gravityVector.Set(gravity, 0f);
                     break;
 
-                case DeviceOrientation.PortraitUpsideDown:
+                case DeviceOrientation.LandscapeLeft:
                     gravityVector.Set(-gravity, 0f);
                     break;
 

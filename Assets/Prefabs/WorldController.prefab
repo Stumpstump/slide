@@ -41,11 +41,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customOrientationText: {fileID: 0}
   lastOrientationText: {fileID: 0}
-  tiltOrientationChangeThreshold: .400000006
-  player: {fileID: 146984, guid: 377618615decfda4184bf1b7dcd5e139, type: 2}
   useOld: {fileID: 0}
+  tiltOrientationChangeThreshold: .400000006
+  zeroBuffer: .00999999978
+  dragSensitivity: .100000001
   currentOrientation: 5
   lastOrientation: 5
+  deviceGravity: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -66,6 +68,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: zeroBuffer
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
