@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 408532}
   - 61: {fileID: 6127276}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 430328}
   - 212: {fileID: 21224882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: straightinside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 414736}
   - 212: {fileID: 21242156}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: straightoutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,8 +55,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.97887516, y: -11.4505577, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7.32000017, y: -9.57999992, z: 0}
+  m_LocalScale: {x: 11.6872234, y: 1, z: 1}
   m_Children:
   - {fileID: 414736}
   - {fileID: 430328}
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44f3b48c1e5dc594da82ca7258a17f63, type: 2}
+  - {fileID: 2100000, guid: 11d5e6a35227b164cbdf0dd8683f40db, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -135,7 +135,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f73ec96d3ec0b8459e52435a61ca8a4, type: 2}
+  - {fileID: 2100000, guid: 69be78958d6e1c44dbf67f267162f312, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -165,6 +165,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Size.y
       value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 11d5e6a35227b164cbdf0dd8683f40db, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
