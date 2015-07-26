@@ -26,8 +26,8 @@ public class WorldController : MonoBehaviour
     [Tooltip("How sensitive the editor dragging is.")]
     private float dragSensitivity;
 
-    private readonly float gravity = 9.81f;
-    private readonly float defaultCamSize = 8.888888f;
+    private const float gravity = 9.81f;
+    private const float defaultCamSize = 8.888888f;
     private Vector2 gravityVector = Vector2.zero;
     private GameObject player;
 
@@ -44,7 +44,7 @@ public class WorldController : MonoBehaviour
     [HideInInspector]
     public Vector3 deviceGravity;
 
-    public static readonly LayerMask layerPlatforms = LayerMask.NameToLayer("Platforms");
+    public static LayerMask layerPlatforms = LayerMask.NameToLayer("Platforms");
 
 
     void Awake()
