@@ -119,8 +119,6 @@ public class PlayerController : MonoBehaviour
     {
         // Check for grounding
         isGrounded = Physics2D.OverlapCircle(transform.position, radiusForGroundCheck, 1 << WorldController.layerPlatforms);
-        Debug.Log(isGrounded);
-        Debug.DrawRay(transform.position, Vector2.down * radiusForGroundCheck);
 
         #region Rolling Handling
         switch (wc.lastOrientation)

@@ -44,13 +44,14 @@ public class WorldController : MonoBehaviour
     [HideInInspector]
     public Vector3 deviceGravity;
 
-    public static LayerMask layerPlatforms = LayerMask.NameToLayer("Platforms");
+    public static LayerMask layerPlatforms;
 
 
     void Awake()
     {
         Camera.main.orthographicSize = defaultCamSize;
         player = GameObject.FindGameObjectWithTag("Player");
+        layerPlatforms = LayerMask.NameToLayer("Platforms");
     }
 
     void Update()
