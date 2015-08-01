@@ -6,8 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/raymondstump.unity
+  - enabled: 1
+    path: Assets/Scenes/concept.unity
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
-  - enabled: 1
-    path: Assets/Scenes/concept.unity
