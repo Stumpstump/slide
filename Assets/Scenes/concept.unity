@@ -1548,6 +1548,10 @@ Prefab:
       propertyPath: dragSensitivity
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 11400496, guid: ca801b448d0cb134985dcff5a89c3f74, type: 2}
+      propertyPath: zeroBuffer
+      value: .150000006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca801b448d0cb134985dcff5a89c3f74, type: 2}
   m_IsPrefabParent: 0
@@ -3444,6 +3448,26 @@ Prefab:
       propertyPath: percentageText
       value: 
       objectReference: {fileID: 1585811147}
+    - target: {fileID: 11497154, guid: 377618615decfda4184bf1b7dcd5e139, type: 2}
+      propertyPath: rollSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030642, guid: 377618615decfda4184bf1b7dcd5e139, type: 2}
+      propertyPath: m_AngularDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030642, guid: 377618615decfda4184bf1b7dcd5e139, type: 2}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497154, guid: 377618615decfda4184bf1b7dcd5e139, type: 2}
+      propertyPath: minJumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497154, guid: 377618615decfda4184bf1b7dcd5e139, type: 2}
+      propertyPath: maxJumpForce
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 377618615decfda4184bf1b7dcd5e139, type: 2}
   m_IsPrefabParent: 0
