@@ -7,7 +7,9 @@ public class PlayerDestroyer : MonoBehaviour
     {
         if(other.collider.tag == "Player")
         {
-            Destroy(other.gameObject);
+			other.gameObject.SetActive(false);
+			Client.UIManagerInstance.OpenMenu("death");
+			//GetComponentInParent<LevelManager> ().Respawn();
         }
     }
 }

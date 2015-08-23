@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         string percentageString = (jumpPercentage * 100f).ToString("0#") + "%";
-        percentageText.text = percentageString;
+        if(percentageText != null) percentageText.text = percentageString;
 
         #region Jumping Logic
 #if UNITY_EDITOR
