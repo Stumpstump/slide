@@ -2787,8 +2787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e6ce95ede81124e9e5e61e6381b4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  exit: {fileID: 0}
+  spawnPoint: {fileID: 335184884}
+  exit: {fileID: 1555804008}
   root: {fileID: 319565111}
   name: Level 2
 --- !u!1 &299395595
@@ -4135,7 +4135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &474074052
 Transform:
   m_ObjectHideFlags: 0
@@ -4149,9 +4149,9 @@ Transform:
   - {fileID: 1680982930}
   - {fileID: 657554605}
   - {fileID: 1108648260}
-  - {fileID: 1066254925}
-  - {fileID: 1290483530}
   - {fileID: 985783166}
+  - {fileID: 1290483530}
+  - {fileID: 1066254925}
   - {fileID: 240809474}
   - {fileID: 783646600}
   m_Father: {fileID: 787961824}
@@ -5404,8 +5404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e6ce95ede81124e9e5e61e6381b4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  exit: {fileID: 0}
+  spawnPoint: {fileID: 506561414}
+  exit: {fileID: 1143483312}
   root: {fileID: 1961793540}
   name: Level 2
 --- !u!114 &623330388
@@ -7340,8 +7340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e6ce95ede81124e9e5e61e6381b4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  exit: {fileID: 0}
+  spawnPoint: {fileID: 657554605}
+  exit: {fileID: 1108648261}
   root: {fileID: 474074051}
   name: Level 2
 --- !u!1 &791001819
@@ -7574,8 +7574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e6ce95ede81124e9e5e61e6381b4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  exit: {fileID: 0}
+  spawnPoint: {fileID: 2126411835}
+  exit: {fileID: 1119078949}
   root: {fileID: 640852733}
   name: Level 2
 --- !u!1 &804034694
@@ -17275,8 +17275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e6ce95ede81124e9e5e61e6381b4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  exit: {fileID: 0}
+  spawnPoint: {fileID: 590634510}
+  exit: {fileID: 142674121}
   root: {fileID: 973637776}
   name: Level 2
 --- !u!1 &1666820715
@@ -18003,8 +18003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e6ce95ede81124e9e5e61e6381b4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  exit: {fileID: 0}
+  spawnPoint: {fileID: 1119630786}
+  exit: {fileID: 1157130104}
   root: {fileID: 1666820715}
   name: Level 2
 --- !u!1001 &1744197722

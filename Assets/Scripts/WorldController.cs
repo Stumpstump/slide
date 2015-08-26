@@ -26,7 +26,7 @@ public class WorldController : MonoBehaviour
     [Tooltip("How sensitive the editor dragging is.")]
     private float dragSensitivity;
 
-    private const float gravity = 9.81f;
+	private const float gravity = 18.5f;//9.81f;
     private const float defaultCamSize = 8.888888f;
     private Vector2 gravityVector = Vector2.zero;
     private GameObject player;
@@ -49,6 +49,7 @@ public class WorldController : MonoBehaviour
 
     void Awake()
     {
+		useOld.isOn = false;
         Camera.main.orthographicSize = defaultCamSize;
         player = GameObject.FindGameObjectWithTag("Player");
         layerPlatforms = LayerMask.NameToLayer("Platforms");
@@ -186,11 +187,11 @@ public class WorldController : MonoBehaviour
     {
         if (currentOrientation != lastOrientation)
         {
-            if (currentOrientation == DeviceOrientation.LandscapeLeft ||
-                currentOrientation == DeviceOrientation.LandscapeRight ||
-                currentOrientation == DeviceOrientation.Portrait ||
-                currentOrientation == DeviceOrientation.PortraitUpsideDown)
-                lastOrientation = currentOrientation;
+        //    if (//currentOrientation == DeviceOrientation.LandscapeLeft ||
+                //currentOrientation == DeviceOrientation.LandscapeRight ||
+               // currentOrientation == DeviceOrientation.FaceDown ||
+                //currentOrientation == DeviceOrientation.FaceUp)
+        	lastOrientation = currentOrientation;
         }
     }
 
@@ -223,8 +224,6 @@ public class WorldController : MonoBehaviour
 
                 case DeviceOrientation.FaceDown:
                 case DeviceOrientation.FaceUp:
-                    break;
-
                 default:
                     break;
             }

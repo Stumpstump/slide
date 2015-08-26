@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class LevelSelectMenu : BaseMenu 
 {
 	public Button backButton;
+	public Scrollbar scrollBar;
 	public LevelOption levelOptionPrefab;
 	public Transform Container;
 
@@ -60,6 +61,8 @@ public class LevelSelectMenu : BaseMenu
 					delegate{SelectLevel(index);}
 				);
 		}
+
+		scrollBar.value = 0;
 	}
 
 

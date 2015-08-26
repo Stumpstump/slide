@@ -59,6 +59,9 @@ GameObject:
   m_Component:
   - 224: {fileID: 22485714}
   - 114: {fileID: 11464132}
+  - 222: {fileID: 22237296}
+  - 114: {fileID: 11470484}
+  - 114: {fileID: 11422880}
   m_Layer: 5
   m_Name: Level Options
   m_TagString: Untagged
@@ -251,6 +254,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11422880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1200242548, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!114 &11423178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,13 +347,34 @@ MonoBehaviour:
   m_Inertia: 1
   m_DecelerationRate: .135000005
   m_ScrollSensitivity: 1
-  m_HorizontalScrollbar: {fileID: 11487794}
-  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 11487794}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11470484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .0117647061}
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &11478430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,6 +403,7 @@ MonoBehaviour:
   root: {fileID: 178408}
   destroyOnClose: 0
   backButton: {fileID: 11487654}
+  scrollBar: {fileID: 11487794}
   levelOptionPrefab: {fileID: 11458418, guid: 44c242ab2c5a2bc4c8ba0357ed9f644b, type: 2}
   Container: {fileID: 22482544}
   levelOptions: []
@@ -495,6 +532,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130002}
+--- !u!222 &22237296
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132296}
 --- !u!222 &22250364
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -566,6 +609,7 @@ RectTransform:
   m_Children:
   - {fileID: 22445338}
   - {fileID: 22446340}
+  - {fileID: 22436028}
   - {fileID: 22485714}
   m_Father: {fileID: 22477928}
   m_RootOrder: 0
@@ -585,12 +629,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22457130}
-  m_Father: {fileID: 22485714}
-  m_RootOrder: 0
+  m_Father: {fileID: 22422828}
+  m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: 0}
-  m_SizeDelta: {x: 30, y: 0}
+  m_AnchoredPosition: {x: -446.000031, y: -159.999939}
+  m_SizeDelta: {x: 30, y: -300}
   m_Pivot: {x: .5, y: 1}
 --- !u!224 &22445338
 RectTransform:
@@ -691,11 +735,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22485714}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -900}
+  m_SizeDelta: {x: 0, y: -1130.26526}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22485714
 RectTransform:
@@ -707,14 +751,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 22436028}
   - {fileID: 22482544}
   m_Father: {fileID: 22422828}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 1}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 600, y: -300}
+  m_SizeDelta: {x: 650, y: -300}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
