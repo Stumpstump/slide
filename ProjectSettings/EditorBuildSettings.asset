@@ -5,14 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-<<<<<<< HEAD
-  - enabled: 0
-    path: Assets/Scenes/concept.unity
   - enabled: 1
-    path: Assets/Scenes/Taylor - Testing.unity
-=======
+    path: Assets/GyroAccelControl/GyroAccel_Input_Controller_v5/Demo's/Demo 3 (Car).unity
   - enabled: 1
-    path: Assets/Scenes/Taylor - Testing.unity
-  - enabled: 1
-    path: Assets/Scenes/concept.unity
->>>>>>> master
+    path: Assets/Scenes/New Gyro Scene.unity
